@@ -9,9 +9,14 @@
 import UIKit
 
 struct DataStation: Codable {
+    var created_at: String?
+    var updated_at: String?
     var id: String?
     var external_id: String?
     var name: String?
+    var longitude: Double?
+    
+    var latitude: Double?
 }
 
 //struct Weather: Codable {

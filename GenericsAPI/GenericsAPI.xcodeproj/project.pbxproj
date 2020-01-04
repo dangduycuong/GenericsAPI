@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		538C07E723BEDB580078CC4C /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C07E623BEDB580078CC4C /* BaseURL.swift */; };
 		538C07E923BEECDE0078CC4C /* AlamofireBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C07E823BEECDE0078CC4C /* AlamofireBase.swift */; };
 		538C07EB23BEF2F10078CC4C /* WellCome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C07EA23BEF2F10078CC4C /* WellCome.swift */; };
+		53F4CB2E23C02A040012EA13 /* DicrectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F4CB2D23C02A040012EA13 /* DicrectionVC.swift */; };
 		AC7D20A1C4D6B8FD95DDE1B0 /* Pods_GenericsAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC72CB48BB794A3B23DC341 /* Pods_GenericsAPI.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		538C07E623BEDB580078CC4C /* BaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		538C07E823BEECDE0078CC4C /* AlamofireBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireBase.swift; sourceTree = "<group>"; };
 		538C07EA23BEF2F10078CC4C /* WellCome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellCome.swift; sourceTree = "<group>"; };
+		53F4CB2D23C02A040012EA13 /* DicrectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicrectionVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				538C07E023BEC8870078CC4C /* Model */,
 				538C07CE23BEC87B0078CC4C /* AppDelegate.swift */,
 				538C07D023BEC87B0078CC4C /* ViewController.swift */,
+				53F4CB2D23C02A040012EA13 /* DicrectionVC.swift */,
 				538C07D223BEC87B0078CC4C /* Main.storyboard */,
 				538C07D523BEC87C0078CC4C /* Assets.xcassets */,
 				538C07D723BEC87C0078CC4C /* LaunchScreen.storyboard */,
@@ -236,6 +239,7 @@
 			files = (
 				538C07E223BEC8D00078CC4C /* DataStation.swift in Sources */,
 				538C07E923BEECDE0078CC4C /* AlamofireBase.swift in Sources */,
+				53F4CB2E23C02A040012EA13 /* DicrectionVC.swift in Sources */,
 				538C07EB23BEF2F10078CC4C /* WellCome.swift in Sources */,
 				538C07E523BECA000078CC4C /* BaseNetwork.swift in Sources */,
 				538C07E723BEDB580078CC4C /* BaseURL.swift in Sources */,

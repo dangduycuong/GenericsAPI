@@ -13,7 +13,7 @@
 //    case chi_tiet
 //    case thiet_bi
 //    case diem_xung_yeu
-//    
+//
 //    var URL: URL {
 //        func generalUrlComponent(host: String, port: Int, path: String, queryItems: [URLQueryItem]) -> URL {
 //            var urlComponents = URLComponents()
@@ -22,10 +22,10 @@
 //            urlComponents.port = port
 //            urlComponents.path = path
 //            urlComponents.queryItems = queryItems
-//            
+//
 //            return urlComponents.url!
 //        }
-//        
+//
 //        //path of url
 //        switch self {
 //        case .chi_tiet:
@@ -50,6 +50,6 @@
 //                ])
 //        }
 //    }
-//    
-//    
+//
+//
 //}
