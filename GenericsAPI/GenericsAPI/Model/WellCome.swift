@@ -8,7 +8,7 @@ import Foundation
 // MARK: - Welcome
 struct Welcome: Codable {
     let coord: Coord
-    let weather: [Weather]
+    let weather: [Weather]?
     let base: String
     let main: Main
     let visibility: Int
@@ -55,7 +55,7 @@ struct Sys: Codable {
 // MARK: - Weather
 struct Weather: Codable {
     let id: Int
-    let main, weatherDescription, icon: String
+    let main, weatherDescription, icon: String?
     
     enum CodingKeys: String, CodingKey {
         case id, main

@@ -7,10 +7,30 @@
 //
 
 import UIKit
+import WebKit
 
-class DicrectionVC: UIViewController, UIWebViewDelegate {
-    @IBOutlet weak var webView: UIWebView!
+class DataModel {
+    var name: String?
+}
+
+class DicrectionVC: UIViewController, WKNavigationDelegate {
+    @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var loadSpinner: UIActivityIndicatorView!
+    
+    @IBOutlet weak var textField: UITextField! {
+        didSet {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 6
+            paragraphStyle.lineHeightMultiple = 1.25
+            let attributes = [
+                NSAttributedString.Key.font: UIFont(name: "PlayfairDisplay-Italic", size: 20)!,
+                NSAttributedString.Key.foregroundColor: UIColor.lightGray,
+                NSAttributedString.Key.paragraphStyle: paragraphStyle
+            ]
+            let attributedPlaceholder = NSAttributedString(string: "Nhập tên bài thơ", attributes: attributes)
+            textField.attributedPlaceholder = attributedPlaceholder
+        }
+    }
     
     var latitude: Double?
     var longitude: Double?
@@ -19,7 +39,7 @@ class DicrectionVC: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.delegate = self
+        webView.navigationDelegate = self
         loadSpinner.layer.cornerRadius = loadSpinner.frame.width / 2
         loadAddress()
         if(stringTitle.isEmpty){
@@ -27,6 +47,13 @@ class DicrectionVC: UIViewController, UIWebViewDelegate {
         } else {
             self.title = stringTitle
         }
+        
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
+        
+        
     }
     
 //    func getLocation(){
@@ -82,7 +109,7 @@ class DicrectionVC: UIViewController, UIWebViewDelegate {
         """
         let myURL = URL(string: url)
         let myRequest = URLRequest(url: myURL!)
-        webView.loadRequest(myRequest)
+        webView.load(myRequest)
         print("Sucessfully")
     }
     

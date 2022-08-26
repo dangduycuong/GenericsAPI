@@ -21,11 +21,11 @@ class BaseNetwork {
                 print(error as Any)
                 return
             }
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+            if let data = data {
                 print("fullURLRequest: ", url)
                 print("params: ", url.query)
                 print("header: ", url.relativeString)
-                print("Response json:\n", dataString)
+                data.printFormatedJSON()
             }
             guard let data = data else { return }
             do {
@@ -65,33 +65,31 @@ class BaseNetwork {
     }
     
     func customCallAPI<T: Codable>(url: URL, method: String, completion: @escaping(T)->()) {
-        let dataTask = URLSession.shared.dataTask(with: url) { (data1, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
                 print(error as Any)
                 return
             }
-            guard let data = data1 else { return }
-            do {
-                let data = try JSONDecoder().decode(T.self, from: data)
-//                if let data = data1, let dataString = String(data: data, encoding: .utf8) {
-//                    print("fullURLRequest: ", url)
-//                    print("params: ", url.query)
-//                    print("header: ", url.absoluteString)
-//                    print("Response json:\n", dataString)
-//                }
-                
-                print(data)
-                DispatchQueue.main.async {
-                    completion(data)
+            if let data = data {
+                do {
+                    let json = try JSONDecoder().decode(T.self, from: data)
+                    //                if let data = data1, let dataString = String(data: data, encoding: .utf8) {
+                    //                    print("fullURLRequest: ", url)
+                    //                    print("params: ", url.query)
+                    //                    print("header: ", url.absoluteString)
+                    //                    print("Response json:\n", dataString)
+                    //                }
                     
-                    
-                    
+                    data.printFormatedJSON()
+                    DispatchQueue.main.async {
+                        completion(json)
+                    }
+                } catch let error {
+                    print("decode error: ", error)
                 }
-            } catch let error {
-                print("decode error: ", error)
             }
-            }
-            dataTask.resume()
+        }
+        dataTask.resume()
     }
     
     func login(url: URL, completion: @escaping(String) -> Void) {
@@ -101,9 +99,6 @@ class BaseNetwork {
                 print(dataString)
             }
             do {
-                
-//                let data = data1 as? String
-                
             }
         }
         dataTask.resume()
@@ -112,3 +107,29 @@ class BaseNetwork {
 }
 
 
+import Foundation
+
+extension Data {
+    
+    func printResponseJson() {
+        if let json = try? JSONSerialization.jsonObject(with: self, options: .mutableContainers),
+           let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
+            print(String(decoding: jsonData, as: UTF8.self))
+        } else {
+            print("json data malformed")
+        }
+    }
+    
+    func printFormatedJSON() {
+        if let json = try? JSONSerialization.jsonObject(with: self, options: .mutableContainers),
+           let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
+            pringJSONData(jsonData)
+        } else {
+            assertionFailure("Malformed JSON")
+        }
+    }
+    
+    private func pringJSONData(_ data: Data) {
+        print(String(decoding: data, as: UTF8.self))
+    }
+}

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Material
 
 enum CallAPIType: Int {
     case thoi_tiet = 0
@@ -29,15 +30,13 @@ enum CallAPIType: Int {
         }
     }
 }
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var created_atLabel: UILabel!
     @IBOutlet weak var updated_atLabel: UILabel!
-    
-    
-    
+    @IBOutlet weak var weatherButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     var dataStation: DataStation?
     var dataWeather: Welcome?
@@ -45,15 +44,55 @@ class ViewController: UIViewController {
     var linkURL = "https://samples.openweathermap.org/data/2.5/weather"
     var header = Dictionary<String, Any>()
     var urlQueryItem = [URLQueryItem]()
+    var meals = [MealElement]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        tableView.registerCell(MealTableViewCell.self)
+        filterFoodByArea()
     }
-
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+    func filterFoodByArea() {
+        //https://themealdb.p.rapidapi.com/filter.php?a=Canadian
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "themealdb.p.rapidapi.com"
+        urlComponents.path = "/filter.php"
+        
+        let queryItems: [URLQueryItem] = [
+            URLQueryItem(name: "a", value: "Canadian")
+        ]
+        urlComponents.queryItems = queryItems
+        if let url = urlComponents.url {
+            var request = URLRequest(url: url)
+            let headers: [String: String] = [
+                "X-RapidAPI-Key" : "3eaa55e25cmshdb95e461cca8827p16799fjsn4425f9e011f3",
+                "X-RapidAPI-Host" : "themealdb.p.rapidapi.com"
+            ]
+            request.httpMethod = "GET"
+            request.allHTTPHeaderFields = headers
+            request.cachePolicy = .useProtocolCachePolicy
+            request.timeoutInterval = 10.0
+            
+            let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                data?.printFormatedJSON()
+                if let data = data {
+                    let json = try? JSONDecoder().decode(Meal.self, from: data)
+                    if let meals = json?.meals {
+                        DispatchQueue.main.async {
+                            self.meals = meals
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("error \(httpResponse.statusCode)")
+                }
+            }
+            dataTask.resume()
+        }
+        
+        
     }
     
     func disPlayDataStation() {
@@ -109,38 +148,37 @@ class ViewController: UIViewController {
     }
     
     @IBAction func printWeather(_ sender: UIButton) {
-//        BaseNetwork.sharedInstance.customCallAPI(url: URL(string: "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22")!, method: "GET") { (data: Welcome) in
-//
-//        }
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "samples.openweathermap.org"
+        urlComponents.path = "/data/2.5/weather"
         
-//        BaseNetwork.sharedInstance.getData(urlString: "http://ksan.neo.vn/a2/api?ServiceType=value&Service=login_service_mobile&Provider=default&ParamSize=3&P1=longnvneo&P2=25d55ad283aa400af464c76d713c07ad&P3=140146ab319b28b1") { (data: User) in
-//            
-//        }
-//        let urlQueryItem: [URLQueryItem] = [
-//            URLQueryItem(name: "ServiceType", value: "value"),
-//            URLQueryItem(name: "Service", value: "login_service_mobile"),
-//            URLQueryItem(name: "Provider", value: "default"),
-//            URLQueryItem(name: "ParamSize", value: "3"),
-//
-//            URLQueryItem(name: "P1", value: "longnvneo"),
-//            URLQueryItem(name: "P2", value: "25d55ad283aa400af464c76d713c07ad"),
-//            URLQueryItem(name: "P3", value: "140146ab319b28b1")
-//        ]
-//
-//        let urlComponents = NSURLComponents(string: "http://ksan.neo.vn/a2/api")!
-//        urlComponents.queryItems = urlQueryItem
-//        let url = urlComponents.url!
-//
-//        BaseNetwork.sharedInstance.login(url: url) { data in
-//
-//        }
+        let urlQueryItems: [URLQueryItem] = [
+            URLQueryItem(name: "q", value: "London,uk"),
+            URLQueryItem(name: "appid", value: "b6907d289e10d714a6e88b30761fae22"),
+        ]
         
+        urlComponents.queryItems = urlQueryItems
         
-        
-        AlamofireBase.sharedAlamofire.genericFetch(urlString: "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22") { (data: Welcome) in
-            self.dataWeather = data
-            print(self.dataWeather!)
+        if let url = urlComponents.url {
+            BaseNetwork.sharedInstance.customCallAPI(url: url, method: "GET") { (data: Welcome) in
+                if let weather = data.weather, !weather.isEmpty {
+                    let label = UILabel()
+                    self.view.layout(label)
+                        .below(self.weatherButton, 32).left(16).centerX()
+                    label.text = weather[0].weatherDescription
+                    label.font = UIFont(name: "PlayfairDisplay-Regular", size: 18)
+                    label.numberOfLines = 0
+                }
+            }
         }
+        
+        
+        
+//        AlamofireBase.sharedAlamofire.genericFetch(urlString: "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22") { (data: Welcome) in
+//            self.dataWeather = data
+//            print(self.dataWeather!)
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -148,6 +186,22 @@ class ViewController: UIViewController {
         directionVC?.latitude = dataStation?.latitude
         directionVC?.longitude = dataStation?.longitude
         directionVC?.address = dataStation?.name
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return meals.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(cellType: MealTableViewCell.self, forIndexPath: indexPath)
+        cell.loadImage(mealElement: meals[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard.storyBoard(.main).viewController(of: MealViewController.self)
+        vc.meal = meals[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

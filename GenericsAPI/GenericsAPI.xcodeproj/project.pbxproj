@@ -19,6 +19,17 @@
 		538C07EB23BEF2F10078CC4C /* WellCome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538C07EA23BEF2F10078CC4C /* WellCome.swift */; };
 		53F4CB2E23C02A040012EA13 /* DicrectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F4CB2D23C02A040012EA13 /* DicrectionVC.swift */; };
 		AC7D20A1C4D6B8FD95DDE1B0 /* Pods_GenericsAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC72CB48BB794A3B23DC341 /* Pods_GenericsAPI.framework */; };
+		FA7B8D1D28B89DC1002190EF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B8D1C28B89DC1002190EF /* String+Extension.swift */; };
+		FA7B8D2028B89FFD002190EF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B8D1F28B89FFD002190EF /* Utils.swift */; };
+		FA7B8D2228B8A658002190EF /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B8D2128B8A658002190EF /* Identifier.swift */; };
+		FA7B8D2B28B8A925002190EF /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B8D2928B8A925002190EF /* MealTableViewCell.swift */; };
+		FA7B8D2C28B8A925002190EF /* MealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7B8D2A28B8A925002190EF /* MealTableViewCell.xib */; };
+		FA7B8D6D28B8AC3D002190EF /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B8D6C28B8AC3D002190EF /* MealModel.swift */; };
+		FA7B8D6F28B8B333002190EF /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B8D6E28B8B333002190EF /* UIStoryboard+Extension.swift */; };
+		FA7B8D7128B8B35E002190EF /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B8D7028B8B35E002190EF /* UIViewController+Extension.swift */; };
+		FAE90C9A28B75D1C00FE617A /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAE90C9928B75D1C00FE617A /* PlayfairDisplay-Bold.ttf */; };
+		FAE90C9C28B75D2A00FE617A /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAE90C9B28B75D2A00FE617A /* PlayfairDisplay-Regular.ttf */; };
+		FAEF4E9A28B8B41A00FD0CF0 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF4E9928B8B41A00FD0CF0 /* MealViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +49,17 @@
 		538C07E823BEECDE0078CC4C /* AlamofireBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireBase.swift; sourceTree = "<group>"; };
 		538C07EA23BEF2F10078CC4C /* WellCome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellCome.swift; sourceTree = "<group>"; };
 		53F4CB2D23C02A040012EA13 /* DicrectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DicrectionVC.swift; sourceTree = "<group>"; };
+		FA7B8D1C28B89DC1002190EF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		FA7B8D1F28B89FFD002190EF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		FA7B8D2128B8A658002190EF /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
+		FA7B8D2928B8A925002190EF /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		FA7B8D2A28B8A925002190EF /* MealTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealTableViewCell.xib; sourceTree = "<group>"; };
+		FA7B8D6C28B8AC3D002190EF /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
+		FA7B8D6E28B8B333002190EF /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		FA7B8D7028B8B35E002190EF /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		FAE90C9928B75D1C00FE617A /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		FAE90C9B28B75D2A00FE617A /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		FAEF4E9928B8B41A00FD0CF0 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +104,16 @@
 		538C07CD23BEC87B0078CC4C /* GenericsAPI */ = {
 			isa = PBXGroup;
 			children = (
+				FA7B8D2328B8A86F002190EF /* Modules */,
+				FA7B8D1E28B89FF1002190EF /* Utils */,
+				FA7B8D1B28B89DAF002190EF /* Extension */,
 				538C07E323BEC9EE0078CC4C /* Network */,
 				538C07E023BEC8870078CC4C /* Model */,
 				538C07CE23BEC87B0078CC4C /* AppDelegate.swift */,
 				538C07D023BEC87B0078CC4C /* ViewController.swift */,
 				53F4CB2D23C02A040012EA13 /* DicrectionVC.swift */,
 				538C07D223BEC87B0078CC4C /* Main.storyboard */,
-				538C07D523BEC87C0078CC4C /* Assets.xcassets */,
+				FAE90C9728B75CE600FE617A /* Resource */,
 				538C07D723BEC87C0078CC4C /* LaunchScreen.storyboard */,
 				538C07DA23BEC87C0078CC4C /* Info.plist */,
 			);
@@ -120,6 +145,94 @@
 				2CC72CB48BB794A3B23DC341 /* Pods_GenericsAPI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA7B8D1B28B89DAF002190EF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B8D1C28B89DC1002190EF /* String+Extension.swift */,
+				FA7B8D2128B8A658002190EF /* Identifier.swift */,
+				FA7B8D6E28B8B333002190EF /* UIStoryboard+Extension.swift */,
+				FA7B8D7028B8B35E002190EF /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FA7B8D1E28B89FF1002190EF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B8D1F28B89FFD002190EF /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FA7B8D2328B8A86F002190EF /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B8D2428B8A877002190EF /* FilterFoods */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		FA7B8D2428B8A877002190EF /* FilterFoods */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B8D6B28B8AC30002190EF /* Model */,
+				FA7B8D2628B8A88D002190EF /* Views */,
+				FA7B8D2528B8A884002190EF /* Controllers */,
+			);
+			path = FilterFoods;
+			sourceTree = "<group>";
+		};
+		FA7B8D2528B8A884002190EF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FAEF4E9928B8B41A00FD0CF0 /* MealViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FA7B8D2628B8A88D002190EF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B8D2728B8A900002190EF /* MealTableViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA7B8D2728B8A900002190EF /* MealTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B8D2928B8A925002190EF /* MealTableViewCell.swift */,
+				FA7B8D2A28B8A925002190EF /* MealTableViewCell.xib */,
+			);
+			path = MealTableViewCell;
+			sourceTree = "<group>";
+		};
+		FA7B8D6B28B8AC30002190EF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B8D6C28B8AC3D002190EF /* MealModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FAE90C9728B75CE600FE617A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				FAE90C9828B75CEF00FE617A /* Fonts */,
+				538C07D523BEC87C0078CC4C /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		FAE90C9828B75CEF00FE617A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FAE90C9B28B75D2A00FE617A /* PlayfairDisplay-Regular.ttf */,
+				FAE90C9928B75D1C00FE617A /* PlayfairDisplay-Bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +295,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE90C9C28B75D2A00FE617A /* PlayfairDisplay-Regular.ttf in Resources */,
+				FAE90C9A28B75D1C00FE617A /* PlayfairDisplay-Bold.ttf in Resources */,
+				FA7B8D2C28B8A925002190EF /* MealTableViewCell.xib in Resources */,
 				538C07D923BEC87C0078CC4C /* LaunchScreen.storyboard in Resources */,
 				538C07D623BEC87C0078CC4C /* Assets.xcassets in Resources */,
 				538C07D423BEC87B0078CC4C /* Main.storyboard in Resources */,
@@ -237,11 +353,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7B8D6D28B8AC3D002190EF /* MealModel.swift in Sources */,
+				FAEF4E9A28B8B41A00FD0CF0 /* MealViewController.swift in Sources */,
 				538C07E223BEC8D00078CC4C /* DataStation.swift in Sources */,
+				FA7B8D1D28B89DC1002190EF /* String+Extension.swift in Sources */,
+				FA7B8D7128B8B35E002190EF /* UIViewController+Extension.swift in Sources */,
 				538C07E923BEECDE0078CC4C /* AlamofireBase.swift in Sources */,
 				53F4CB2E23C02A040012EA13 /* DicrectionVC.swift in Sources */,
+				FA7B8D2228B8A658002190EF /* Identifier.swift in Sources */,
+				FA7B8D6F28B8B333002190EF /* UIStoryboard+Extension.swift in Sources */,
 				538C07EB23BEF2F10078CC4C /* WellCome.swift in Sources */,
+				FA7B8D2028B89FFD002190EF /* Utils.swift in Sources */,
 				538C07E523BECA000078CC4C /* BaseNetwork.swift in Sources */,
+				FA7B8D2B28B8A925002190EF /* MealTableViewCell.swift in Sources */,
 				538C07E723BEDB580078CC4C /* BaseURL.swift in Sources */,
 				538C07D123BEC87B0078CC4C /* ViewController.swift in Sources */,
 				538C07CF23BEC87B0078CC4C /* AppDelegate.swift in Sources */,
@@ -393,7 +517,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GenericsAPI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -412,7 +536,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GenericsAPI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
